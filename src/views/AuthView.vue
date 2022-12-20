@@ -1,6 +1,7 @@
 <template>
-  <div><h1>AuthView</h1></div>
-  <RegisterComponent></RegisterComponent>
+  <div class="authContainer">
+    <RegisterComponent></RegisterComponent>
+  </div>
 </template>
 
 <script>
@@ -15,5 +16,7 @@ export default {
 </script>
 
 <style scoped>
+.authContainer {
 
+}
 </style>

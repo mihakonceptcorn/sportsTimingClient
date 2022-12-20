@@ -1,36 +1,31 @@
 <template>
   <div class="container">
-    <CardComponent>
-      <template #content>
-        <div class="field">
-        <span class="p-float-label">
-          <InputText id="username" type="text" v-model="formData.userName" />
-          <label for="username">Name</label>
-        </span>
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+      <div class="text-center mb-5">
+        <img src="@/assets/images/timer-stopwatch-svgrepo-com.svg" alt="Image" height="50" class="mb-3">
+        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</a>
+      </div>
+
+      <div>
+        <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+        <InputText id="email1" type="text" class="w-full mb-3" />
+
+        <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+        <InputText id="password1" type="password" class="w-full mb-3" />
+
+        <div class="flex align-items-center justify-content-between mb-6">
+          <div class="flex align-items-center">
+            <CheckboxComponent id="rememberme1" :binary="true" v-model="checked" class="mr-2"></CheckboxComponent>
+            <label for="rememberme1">Remember me</label>
+          </div>
+          <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
         </div>
-        <div class="field">
-        <span class="p-float-label">
-          <InputText id="secondName" type="text" v-model="formData.secondName" />
-          <label for="secondName">Second Name</label>
-        </span>
-        </div>
-        <div class="field">
-        <span class="p-float-label">
-          <InputText id="email" type="email" v-model="formData.email" />
-          <label for="email">Email</label>
-        </span>
-        </div>
-        <div class="field">
-        <span class="p-float-label">
-          <InputText id="password" type="password" v-model="formData.password" />
-          <label for="password">Password</label>
-        </span>
-        </div>
-      </template>
-      <template #footer>
-        <ButtonComponent label="Register" icon="pi pi-user" @click.prevent="getFormData" />
-      </template>
-    </CardComponent>
+
+        <ButtonComponent label="Sign In" icon="pi pi-user" class="w-full"></ButtonComponent>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -74,7 +69,6 @@ export default {
   align-items: center;
   justify-content: center;
   .field {
-    margin-bottom: 26px;
     &:last-of-type {
       margin-bottom: 0;
     }
