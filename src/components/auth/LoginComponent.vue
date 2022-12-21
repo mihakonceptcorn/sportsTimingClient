@@ -4,39 +4,21 @@
       <ProgressSpinner v-if="loading" aria-label="Loading"></ProgressSpinner>
       <div class="text-center mb-5">
         <img src="@/assets/images/timer-stopwatch-svgrepo-com.svg" alt="Image" height="50" class="mb-3">
-        <div class="text-900 text-3xl font-medium mb-3">Register</div>
-        <span class="text-600 font-medium line-height-3">Already have an account?</span>
+        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
         <a
           class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-          @click.prevent="$emit('goToLogin')"
+          @click.prevent="$emit('goToRegister')"
         >
-          Go to login page!
+          Create today!
         </a>
       </div>
 
       <form>
-        <label for="userName" class="block text-900 font-medium mb-2">Name</label>
-        <InputText
-          id="userName"
-          type="text"
-          class="w-full mb-3"
-          autocomplete="false"
-          v-model="formData.userName"
-        />
-
-        <label for="secondName" class="block text-900 font-medium mb-2">Second Name</label>
-        <InputText
-          id="secondName"
-          type="text"
-          class="w-full mb-3"
-          autocomplete="false"
-          v-model="formData.secondName"
-        />
-
         <label for="email" class="block text-900 font-medium mb-2">Email</label>
         <InputText
           id="email"
-          type="email"
+          type="text"
           class="w-full mb-3"
           autocomplete="false"
           v-model="formData.email"
@@ -51,12 +33,14 @@
           v-model="formData.password"
         />
 
-        <ButtonComponent
-          label="Register"
-          icon="pi pi-user"
-          class="w-full"
-          @click.prevent="registerUser()"
-        />
+        <div class="flex align-items-center justify-content-between mb-6">
+          <div class="flex align-items-center">
+            <CheckboxComponent id="rememberme" :binary="true" v-model="checked" class="mr-2"></CheckboxComponent>
+            <label for="rememberme">Remember me</label>
+          </div>
+          <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
+        </div>
+        <ButtonComponent label="Sign In" icon="pi pi-user" class="w-full" @click.prevent="loginUser()"/>
       </form>
     </div>
   </div>
@@ -64,43 +48,38 @@
 
 <script>
 export default {
-  name: "RegisterComponent",
+  name: "LoginComponent",
   data() {
     return {
       loading: false,
-      formData : {
-        userName: null,
-        secondName: null,
+      checked: false,
+      formData: {
         email: null,
         password: null,
-      },
+      }
     }
   },
   methods: {
-    registerUser() {
+    loginUser() {
       this.loading = true
       this.axios
         .post(
-          'http://localhost:3000/api/auth/signup',
+          'http://localhost:3000/api/auth/signin',
           {
-            name: this.formData.userName,
-            second_name: this.formData.secondName,
             email: this.formData.email,
             password: this.formData.password,
           }
         )
         .then(response => {
           this.loading = false
-          if (response.data.status === 200) {
-            this.$emit('goToLogin')
-          }
+          console.log(response)
         })
         .catch(e => {
           this.loading = false
           console.warn(e)
         })
     }
-  },
+  }
 }
 </script>
 
