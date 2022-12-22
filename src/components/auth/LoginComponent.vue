@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { apiUrl } from "@/settings/config";
+
 export default {
   name: "LoginComponent",
   data() {
@@ -60,24 +62,19 @@ export default {
     }
   },
   methods: {
-    loginUser() {
+    async loginUser() {
       this.loading = true
-      this.axios
-        .post(
-          'http://localhost:3000/api/auth/signin',
-          {
-            email: this.formData.email,
-            password: this.formData.password,
-          }
-        )
-        .then(response => {
-          this.loading = false
-          console.log(response)
-        })
-        .catch(e => {
-          this.loading = false
-          console.warn(e)
-        })
+      try {
+        const response = await this.axios.post(apiUrl + '/auth/signin', this.formData)
+        this.loading = false
+        if (response.data.status === 200 && response.data.values.token) {
+          localStorage.setItem('token', response.data.values.token)
+          await this.$router.push({name: 'account'})
+        }
+      } catch (e) {
+        this.loading = false
+        console.warn(e)
+      }
     }
   }
 }
