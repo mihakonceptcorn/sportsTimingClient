@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AuthView from '@/views/AuthView.vue'
 import HomeView from '@/views/HomeView.vue'
 import AccountView from '@/views/AccountView.vue'
+import AccountLayout from '@/layout/AppLayout'
 
 function isLoggedIn() {
   return localStorage.getItem('token')
@@ -26,11 +27,18 @@ const routes = [
   },
   {
     path: '/user',
-    name: 'account',
-    component: AccountView,
+    // name: 'account',
+    component: AccountLayout,
     meta: {
       requiresAuth: true
     },
+    children: [
+      {
+        path: '/user',
+        name: 'account',
+        component: AccountView
+      }
+    ]
   },
 ]
 
