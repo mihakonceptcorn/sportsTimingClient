@@ -1,6 +1,5 @@
 <template>
   <div>
-    <router-link to="/">Home</router-link>
     <h1>Account</h1>
     <p>{{user.id}}</p>
     <p>{{user.name}}</p>

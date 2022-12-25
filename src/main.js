@@ -11,6 +11,8 @@ import ToastComponent from 'primevue/toast'
 import CardComponent from 'primevue/card'
 import CheckboxComponent from 'primevue/checkbox'
 import ProgressSpinner from 'primevue/progressspinner'
+import DataTable from 'primevue/datatable'
+import TableColumn from 'primevue/column'
 
 import '@/assets/styles.scss'
 
@@ -26,5 +28,7 @@ app.component('ToastComponent', ToastComponent)
 app.component('CardComponent', CardComponent)
 app.component('CheckboxComponent', CheckboxComponent)
 app.component('ProgressSpinner', ProgressSpinner)
+app.component('DataTable', DataTable)
+app.component('TableColumn', TableColumn)
 
 app.mount('#app')

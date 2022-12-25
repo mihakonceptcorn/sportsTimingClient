@@ -7,8 +7,13 @@ export default {
     let user = {};
     const token = localStorage.getItem('token').substring(6);
     const decoded = VueJwtDecode.decode(token)
-    let response = await sportsTimingApi().get(apiUrl + '/user/' + decoded.userId);
-    user = response.data.values[0];
-    context.commit('setUserData', user);
+    let response = await sportsTimingApi().get(apiUrl + '/user/' + decoded.userId)
+    console.log('response', response)
+    user = response.data.values[0]
+    context.commit('setUserData', user)
   },
+  logoutUser(context) {
+    localStorage.setItem('token', '')
+    context.commit('clearUserData')
+  }
 }

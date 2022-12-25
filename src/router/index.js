@@ -3,6 +3,7 @@ import AuthView from '@/views/AuthView.vue'
 import HomeView from '@/views/HomeView.vue'
 import AccountView from '@/views/AccountView.vue'
 import AccountLayout from '@/layout/AppLayout'
+import CompetitionsView from "@/views/Competitions/CompetitionsView"
 
 function isLoggedIn() {
   return localStorage.getItem('token')
@@ -26,18 +27,22 @@ const routes = [
     },
   },
   {
-    path: '/user',
-    // name: 'account',
+    path: '/account',
     component: AccountLayout,
     meta: {
       requiresAuth: true
     },
     children: [
       {
-        path: '/user',
+        path: '',
         name: 'account',
         component: AccountView
-      }
+      },
+      {
+        path: 'competitions',
+        name: 'competitions',
+        component: CompetitionsView
+      },
     ]
   },
 ]
