@@ -10,6 +10,11 @@
       responsiveLayout="scroll"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
     >
+      <template #header>
+        <div class="table-header">
+          <ButtonComponent label="Create" icon="pi pi-flag" @click.prevent="goToCreate()"/>
+        </div>
+      </template>
       <TableColumn field="id" header="Id"></TableColumn>
       <TableColumn field="date" header="Date"></TableColumn>
       <TableColumn field="name" header="Name"></TableColumn>
@@ -22,7 +27,7 @@
 
 <script>
 export default {
-  name: "CompetitionsView",
+  name: "CompetitionsTable",
   data() {
     return {
       competitions: [
@@ -51,6 +56,11 @@ export default {
           finished: true
         }
       ],
+    }
+  },
+  methods: {
+    goToCreate() {
+      this.$router.push({name: 'createCompetition'})
     }
   },
 }
