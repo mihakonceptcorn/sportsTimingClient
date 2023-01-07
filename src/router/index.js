@@ -45,7 +45,7 @@ const routes = [
         component: CompetitionsTable
       },
       {
-        path: 'competitions/create',
+        path: 'competition/create',
         name: 'createCompetition',
         component: CreateCompetition
       },
