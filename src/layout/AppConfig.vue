@@ -18,9 +18,9 @@ const visible = ref(false);
 
 const { changeThemeSettings, setScale, layoutConfig } = useLayout();
 
-const onConfigButtonClick = () => {
-    visible.value = !visible.value;
-};
+// const onConfigButtonClick = () => {
+//     visible.value = !visible.value;
+// };
 const onChangeTheme = (theme, mode) => {
     const elementId = 'theme-css';
     const linkElement = document.getElementById(elementId);
@@ -49,9 +49,9 @@ const applyScale = () => {
 </script>
 
 <template>
-   <ButtonComponent  class="layout-config-button p-link" type="button" @click="onConfigButtonClick()">
-        <i class="pi pi-cog"></i>
-    </ButtonComponent>
+<!--   <ButtonComponent  class="layout-config-button p-link" type="button" @click="onConfigButtonClick()">-->
+<!--        <i class="pi pi-cog"></i>-->
+<!--    </ButtonComponent>-->
 
     <Sidebar v-model:visible="visible" position="right" :transitionOptions="'.3s cubic-bezier(0, 0, 0.2, 1)'" class="layout-config-sidebar w-20rem">
         <h5>Scale</h5>

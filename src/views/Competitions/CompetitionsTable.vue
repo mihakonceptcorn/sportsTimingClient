@@ -17,7 +17,11 @@
         </div>
       </template>
       <TableColumn field="id" header="Id"></TableColumn>
-      <TableColumn field="name" header="Name"></TableColumn>
+      <TableColumn field="name" header="Name">
+        <template #body="slotProps">
+          <a href="#" @click.prevent="goToPreview(slotProps.data.id)">{{slotProps.data.name}}</a>
+        </template>
+      </TableColumn>
       <TableColumn field="country" header="Country"></TableColumn>
       <TableColumn field="city" header="City"></TableColumn>
       <TableColumn field="location" header="Location"></TableColumn>
@@ -50,6 +54,9 @@ export default {
     ...mapActions('competition', ['getUserCompetitions']),
     goToCreate() {
       this.$router.push({name: 'createCompetition'})
+    },
+    goToPreview(id) {
+      console.log(id)
     }
   },
 }
