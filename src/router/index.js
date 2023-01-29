@@ -5,6 +5,7 @@ import AccountView from '@/views/AccountView.vue'
 import AccountLayout from '@/layout/AppLayout'
 import CompetitionsTable from "@/views/Competitions/CompetitionsTable"
 import CreateCompetition from "@/views/Competitions/CreateCompetition"
+import PreviewCompetition from "@/views/Competitions/PreviewCompetition";
 
 function isLoggedIn() {
   return localStorage.getItem('token')
@@ -48,6 +49,11 @@ const routes = [
         path: 'competition/create',
         name: 'createCompetition',
         component: CreateCompetition
+      },
+      {
+        path: 'competition/:id',
+        name: 'previewCompetition',
+        component: PreviewCompetition
       },
     ]
   },

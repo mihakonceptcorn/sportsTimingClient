@@ -56,7 +56,7 @@ export default {
       this.$router.push({name: 'createCompetition'})
     },
     goToPreview(id) {
-      console.log(id)
+      this.$router.push({name: 'previewCompetition', params: {id}})
     }
   },
 }

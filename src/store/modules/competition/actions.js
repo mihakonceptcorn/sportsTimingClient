@@ -14,4 +14,15 @@ export default {
         context.commit('setCompetitions', competitions)
       })
   },
+  async getUCompetitionById(context, competitionId) {
+    const competition = await sportsTimingApi().get(apiUrl + '/competition/' + competitionId)
+    context.commit('setCompetition', competition.data.values[0])
+  },
+  async createCompetition(context, competition) {
+    const token = localStorage.getItem('token').substring(6)
+    const decoded = VueJwtDecode.decode(token)
+    competition.userId = decoded.userId
+    const response = await sportsTimingApi() .post(apiUrl + '/competition/create', competition)
+    return response.data
+  }
 }
