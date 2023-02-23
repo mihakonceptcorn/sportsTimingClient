@@ -14,7 +14,7 @@ export default {
         context.commit('setCompetitions', competitions)
       })
   },
-  async getUCompetitionById(context, competitionId) {
+  async getCompetitionById(context, competitionId) {
     const competition = await sportsTimingApi().get(apiUrl + '/competition/' + competitionId)
     context.commit('setCompetition', competition.data.values[0])
   },

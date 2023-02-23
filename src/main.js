@@ -16,6 +16,8 @@ import CheckboxComponent from 'primevue/checkbox'
 import ProgressSpinner from 'primevue/progressspinner'
 import DataTable from 'primevue/datatable'
 import TableColumn from 'primevue/column'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
 
 import '@/assets/styles.scss'
 
@@ -36,5 +38,7 @@ app.component('CheckboxComponent', CheckboxComponent)
 app.component('ProgressSpinner', ProgressSpinner)
 app.component('DataTable', DataTable)
 app.component('TableColumn', TableColumn)
+app.component('TabView', TabView)
+app.component('TabPanel', TabPanel)
 
 app.mount('#app')

@@ -1,0 +1,1 @@
+export const competitors = state => state.competitors
