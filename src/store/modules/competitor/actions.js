@@ -12,7 +12,7 @@ export default {
       })
   },
   async addCompetitor(context, competitor) {
-    const response = await sportsTimingApi() .post(apiUrl + '/competitors/add', competitor)
+    const response = await sportsTimingApi().post(apiUrl + '/competitors/add', competitor)
     return response.data
   }
 }

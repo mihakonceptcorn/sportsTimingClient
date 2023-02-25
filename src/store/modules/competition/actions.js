@@ -22,7 +22,7 @@ export default {
     const token = localStorage.getItem('token').substring(6)
     const decoded = VueJwtDecode.decode(token)
     competition.userId = decoded.userId
-    const response = await sportsTimingApi() .post(apiUrl + '/competition/create', competition)
+    const response = await sportsTimingApi().post(apiUrl + '/competition/create', competition)
     return response.data
   }
 }

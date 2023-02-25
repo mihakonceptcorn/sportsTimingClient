@@ -18,6 +18,8 @@ import DataTable from 'primevue/datatable'
 import TableColumn from 'primevue/column'
 import TabView from 'primevue/tabview'
 import TabPanel from 'primevue/tabpanel'
+import Dropdown from 'primevue/dropdown'
+import Calendar from 'primevue/calendar'
 
 import '@/assets/styles.scss'
 
@@ -40,5 +42,7 @@ app.component('DataTable', DataTable)
 app.component('TableColumn', TableColumn)
 app.component('TabView', TabView)
 app.component('TabPanel', TabPanel)
+app.component('DropdownComponent', Dropdown)
+app.component('CalendarComponent', Calendar)
 
 app.mount('#app')
