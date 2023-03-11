@@ -20,6 +20,8 @@ import TabView from 'primevue/tabview'
 import TabPanel from 'primevue/tabpanel'
 import Dropdown from 'primevue/dropdown'
 import Calendar from 'primevue/calendar'
+import ConfirmPopup from 'primevue/confirmpopup'
+import ConfirmationService from 'primevue/confirmationservice'
 
 import '@/assets/styles.scss'
 
@@ -28,6 +30,7 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 app.use(PrimeVue, { ripple: true })
+app.use(ConfirmationService)
 app.use(VueAxios, axios)
 app.component('ButtonComponent', ButtonComponent)
 app.component('InputText', InputText)
@@ -44,5 +47,6 @@ app.component('TabView', TabView)
 app.component('TabPanel', TabPanel)
 app.component('DropdownComponent', Dropdown)
 app.component('CalendarComponent', Calendar)
+app.component('ConfirmPopup', ConfirmPopup)
 
 app.mount('#app')

@@ -16,6 +16,7 @@
         </div>
       </template>
       <TableColumn field="id" header="Id"></TableColumn>
+      <TableColumn field="name" header="Name"></TableColumn>
       <TableColumn field="second_name" header="Second Name"></TableColumn>
       <TableColumn field="gender" header="Gender"></TableColumn>
       <TableColumn field="category" header="Category"></TableColumn>
@@ -30,7 +31,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: "CompetitorsTable",

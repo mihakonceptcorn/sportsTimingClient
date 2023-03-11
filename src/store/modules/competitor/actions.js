@@ -3,13 +3,10 @@ import { apiUrl } from "@/settings/config"
 
 export default {
   async getCompetitorsByCompetitionId(context, competitionId) {
-    let competitors = [];
-    sportsTimingApi()
-      .get(apiUrl + '/competitors/' + competitionId)
-      .then(response => {
-        competitors = response.data.values
-        context.commit('setCompetitors', competitors)
-      })
+    const response = await sportsTimingApi().get(apiUrl + '/competitors/' + competitionId)
+    const competitors = response.data.values
+    context.commit('setCompetitors', competitors)
+    return competitors
   },
   async addCompetitor(context, competitor) {
     const response = await sportsTimingApi().post(apiUrl + '/competitors/add', competitor)
